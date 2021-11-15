@@ -18,7 +18,7 @@ namespace HospitalManagementSystem
             Doctor doctor = new Doctor()
             {
                 FullName = "Mahammad Verdiyev",
-                BirthDay = DateTime.Now,
+                BirthDate = DateTime.Now,
                 Email = "mverdiyev2@std.beu.edu.az",
                 PhoneNumber = "+994557148264",
                 Position = "Junior Java Developer",

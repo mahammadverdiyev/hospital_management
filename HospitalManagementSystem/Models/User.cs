@@ -18,6 +18,6 @@ namespace HospitalManagementSystem.Models
         [Required]
         public string Password { get; set; }
 
-        public DateTime BirthDay { get; set; }
+        public DateTime BirthDate { get; set; }
     }
 }

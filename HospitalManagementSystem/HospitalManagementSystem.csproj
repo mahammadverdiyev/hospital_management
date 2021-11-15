@@ -56,12 +56,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="aes\Decryptor.cs" />
+    <Compile Include="aes\Encryptor.cs" />
+    <Compile Include="Container.cs" />
     <Compile Include="DatabaseManager.cs" />
+    <Compile Include="DoctorPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DoctorPage.Designer.cs">
+      <DependentUpon>DoctorPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Implementations\LoginDetailIniSetting.cs" />
+    <Compile Include="IniSetting.cs" />
     <Compile Include="LoginDetail.cs" />
     <Compile Include="LoginSystem.cs" />
-    <Compile Include="Migrations\202111142009343_First.cs" />
-    <Compile Include="Migrations\202111142009343_First.designer.cs">
-      <DependentUpon>202111142009343_First.cs</DependentUpon>
+    <Compile Include="Migrations\202111152052223_First.cs" />
+    <Compile Include="Migrations\202111152052223_First.designer.cs">
+      <DependentUpon>202111152052223_First.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Admin.cs" />
@@ -86,11 +97,15 @@
     <Compile Include="RegisterPatient.Designer.cs">
       <DependentUpon>RegisterPatient.cs</DependentUpon>
     </Compile>
+    <Compile Include="Utility\IniFile.cs" />
+    <EmbeddedResource Include="DoctorPage.resx">
+      <DependentUpon>DoctorPage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="HospitalManagementSystemForm.resx">
       <DependentUpon>HospitalManagementSystemForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111142009343_First.resx">
-      <DependentUpon>202111142009343_First.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202111152052223_First.resx">
+      <DependentUpon>202111152052223_First.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -117,6 +132,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Interfaces\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -11,6 +11,9 @@ namespace HospitalManagementSystem
     public class LoginSystem
     {
         private DatabaseManager databaseManager;
+        private User LoggedUser;
+
+        public User GetLoggedUser => LoggedUser;
 
         public LoginSystem(DatabaseManager databaseManager)
         {
@@ -42,34 +45,20 @@ namespace HospitalManagementSystem
                 if (user is null)
                 {
                     MessageBox.Show("Email or password is invalid.");
+                    LoggedUser = null;
                     return;
                 }
                 else
                 {
                     if (!DoesPasswordMatch(user,loginDetail))
+                    {
                         MessageBox.Show("Incorrect password.");
+                        LoggedUser = null;
+                        return;
+                    }
 
-                    NavigateCorrespondingPage(user);
+                    LoggedUser = user;
                 }
-            }
-        }
-
-        private void NavigateCorrespondingPage(User user)
-        {
-            if (user is Patient)
-            {
-                Patient patient = user as Patient;
-                // show Patient form
-            }
-            else if (user is Doctor)
-            {
-                Doctor doctor = user as Doctor;
-                // show Doctor form
-            }
-            else
-            {
-                Admin admin = user as Admin;
-                // show Admin form
             }
         }
     }

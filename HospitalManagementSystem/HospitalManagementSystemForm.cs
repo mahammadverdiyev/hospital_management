@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net.Mail;
+using HospitalManagementSystem.Implementations;
 
 namespace HospitalManagementSystem
 {
@@ -18,6 +19,8 @@ namespace HospitalManagementSystem
         private HospitalManSystemContext context;
         private DatabaseManager databaseManager;
         private LoginSystem loginSystem;
+        private RegisterPatient registerForm;
+        private DoctorPage doctorPage;
 
         public HospitalManagementSystemForm()
         {
@@ -26,6 +29,33 @@ namespace HospitalManagementSystem
 
         private void HospitalManagementSystemForm_Load(object sender, EventArgs e)
         {
+            InitializeCriticalInstances();
+            CheckForInitialLoginDetails();
+        }
+
+        private void CheckForInitialLoginDetails()
+        {
+            IniSetting<bool> iniSetting = new IniSetting<bool>();
+            if (iniSetting.KeyExists("SaveLoginDetails"))
+            {
+                bool IsSaved = iniSetting.Read("SaveLoginDetails");
+
+                if (IsSaved)
+                {
+                    LoginDetailIniSetting loginIni = new LoginDetailIniSetting();
+                    string email = loginIni.Read("Email","LoginDetail");
+                    string password = loginIni.Read("Password", "LoginDetail");
+
+                    userEmail.Text = email;
+                    userPassword.Text = password;
+
+                    saveDetailsCheckbox.Checked = true;
+                }
+            }
+        }
+
+        private void InitializeCriticalInstances()
+        {
             context = new HospitalManSystemContext();
             databaseManager = new DatabaseManager(context);
             loginSystem = new LoginSystem(databaseManager);
@@ -33,14 +63,22 @@ namespace HospitalManagementSystem
 
         private void RegisterAsPatient(object sender, EventArgs e)
         {
-            // Load register patient form
+
+            registerForm = new RegisterPatient();
+            this.Hide();
+
+            registerForm.FormClosed += (s, eArg) =>
+            {
+                this.Show();
+            };
+
+            registerForm.Show();
         }
 
         private void LoginButton_Click(object sender, EventArgs e)
         {
             if (!loginWorker.IsBusy) loginWorker.RunWorkerAsync();
         }
-
         private void StartLoginProcess(object sender, DoWorkEventArgs e)
         {
             LoginDetail loginDetail = new LoginDetail()
@@ -56,6 +94,41 @@ namespace HospitalManagementSystem
             }
 
             loginSystem.TryLogUser(loginDetail);
+        }
+
+        private void SaveDetailsCheckbox_CheckedChanged(object sender, EventArgs e)
+        {
+            LoginDetailIniSetting loginDetailIni = new LoginDetailIniSetting();
+            IniSetting<bool> iniSetting = new IniSetting<bool>();
+
+            if (saveDetailsCheckbox.Checked)
+            {
+                string email = userEmail.Text.Trim();
+                string password = userPassword.Text.Trim();
+
+                if (string.IsNullOrEmpty(email) && string.IsNullOrEmpty(password)) return;
+
+                loginDetailIni.Write("Email", email,"LoginDetail");
+                loginDetailIni.Write("Password", password, "LoginDetail");
+
+                iniSetting.Write("SaveLoginDetails", true);
+            }
+            else
+            {
+                loginDetailIni.RemoveSection("Logindetail");
+                iniSetting.Write("SaveLoginDetails", false);
+            }
+        }
+
+        private void LoginWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            User loggedUser = loginSystem.GetLoggedUser;
+
+            if (loggedUser != null)
+            {
+                doctorPage = new DoctorPage();
+                doctorPage.Show();
+            }
         }
     }
 }

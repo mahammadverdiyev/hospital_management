@@ -18,7 +18,7 @@ namespace HospitalManagementSystem
 
         public User TryFindUser(LoginDetail loginDetail)
         {
-            var targetUser = context.Users.FirstOrDefault(user => user.Email == loginDetail.Email);
+            User targetUser = context.Users.FirstOrDefault(user => user.Email == loginDetail.Email);
 
             return targetUser;
         }

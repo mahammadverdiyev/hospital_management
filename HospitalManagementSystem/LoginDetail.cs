@@ -17,10 +17,9 @@ namespace HospitalManagementSystem
             try
             {
                 MailAddress m = new MailAddress(Email);
-
                 return true;
             }
-            catch (FormatException)
+            catch (Exception)
             {
                 return false;
             }

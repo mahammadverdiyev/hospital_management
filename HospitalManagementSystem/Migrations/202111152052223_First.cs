@@ -61,7 +61,7 @@
                         FullName = c.String(),
                         Email = c.String(nullable: false),
                         Password = c.String(nullable: false),
-                        BirthDay = c.DateTime(nullable: false),
+                        BirthDate = c.DateTime(nullable: false),
                         Position = c.String(),
                         PhoneNumber = c.String(),
                     })
@@ -75,7 +75,7 @@
                         FullName = c.String(),
                         Email = c.String(nullable: false),
                         Password = c.String(nullable: false),
-                        BirthDay = c.DateTime(nullable: false),
+                        BirthDate = c.DateTime(nullable: false),
                         PhoneNumber = c.String(),
                     })
                 .PrimaryKey(t => t.Id);
@@ -88,7 +88,7 @@
                         FullName = c.String(),
                         Email = c.String(nullable: false),
                         Password = c.String(nullable: false),
-                        BirthDay = c.DateTime(nullable: false),
+                        BirthDate = c.DateTime(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
             

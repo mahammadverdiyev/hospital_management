@@ -36,6 +36,8 @@ namespace HospitalManagementSystem
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.loginWorker = new System.ComponentModel.BackgroundWorker();
+            this.label3 = new System.Windows.Forms.Label();
+            this.saveDetailsCheckbox = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // registerAsPatient
@@ -52,24 +54,25 @@ namespace HospitalManagementSystem
             // 
             // userEmail
             // 
-            this.userEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.8F);
-            this.userEmail.Location = new System.Drawing.Point(258, 85);
+            this.userEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.8F);
+            this.userEmail.Location = new System.Drawing.Point(248, 126);
             this.userEmail.Name = "userEmail";
-            this.userEmail.Size = new System.Drawing.Size(268, 32);
+            this.userEmail.Size = new System.Drawing.Size(304, 30);
             this.userEmail.TabIndex = 5;
             // 
             // userPassword
             // 
             this.userPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.8F);
-            this.userPassword.Location = new System.Drawing.Point(257, 163);
+            this.userPassword.Location = new System.Drawing.Point(247, 204);
             this.userPassword.Name = "userPassword";
-            this.userPassword.Size = new System.Drawing.Size(269, 32);
+            this.userPassword.PasswordChar = '•';
+            this.userPassword.Size = new System.Drawing.Size(305, 32);
             this.userPassword.TabIndex = 6;
             // 
             // loginButton
             // 
             this.loginButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
-            this.loginButton.Location = new System.Drawing.Point(302, 246);
+            this.loginButton.Location = new System.Drawing.Point(292, 310);
             this.loginButton.Name = "loginButton";
             this.loginButton.Size = new System.Drawing.Size(149, 45);
             this.loginButton.TabIndex = 8;
@@ -81,7 +84,7 @@ namespace HospitalManagementSystem
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.8F);
-            this.label1.Location = new System.Drawing.Point(257, 62);
+            this.label1.Location = new System.Drawing.Point(247, 103);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(45, 18);
             this.label1.TabIndex = 9;
@@ -91,7 +94,7 @@ namespace HospitalManagementSystem
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.8F);
-            this.label2.Location = new System.Drawing.Point(257, 142);
+            this.label2.Location = new System.Drawing.Point(247, 183);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(75, 18);
             this.label2.TabIndex = 10;
@@ -100,12 +103,38 @@ namespace HospitalManagementSystem
             // loginWorker
             // 
             this.loginWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.StartLoginProcess);
+            this.loginWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.LoginWorkerCompleted);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.8F);
+            this.label3.Location = new System.Drawing.Point(340, 36);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(101, 39);
+            this.label3.TabIndex = 11;
+            this.label3.Text = "Login";
+            // 
+            // saveDetailsCheckbox
+            // 
+            this.saveDetailsCheckbox.AutoSize = true;
+            this.saveDetailsCheckbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.8F);
+            this.saveDetailsCheckbox.Location = new System.Drawing.Point(411, 254);
+            this.saveDetailsCheckbox.Name = "saveDetailsCheckbox";
+            this.saveDetailsCheckbox.Size = new System.Drawing.Size(141, 24);
+            this.saveDetailsCheckbox.TabIndex = 12;
+            this.saveDetailsCheckbox.Text = "Remember me";
+            this.saveDetailsCheckbox.UseVisualStyleBackColor = true;
+            this.saveDetailsCheckbox.CheckedChanged += new System.EventHandler(this.SaveDetailsCheckbox_CheckedChanged);
             // 
             // HospitalManagementSystemForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.saveDetailsCheckbox);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.loginButton);
@@ -128,5 +157,7 @@ namespace HospitalManagementSystem
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.ComponentModel.BackgroundWorker loginWorker;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.CheckBox saveDetailsCheckbox;
     }
 }

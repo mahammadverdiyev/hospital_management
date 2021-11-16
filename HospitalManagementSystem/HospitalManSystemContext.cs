@@ -1,12 +1,13 @@
 ﻿using HospitalManagementSystem.Models;
 using System.Data.Entity;
+using System.Data.SqlClient;
 
 namespace HospitalManagementSystem
 {
     public class HospitalManSystemContext : DbContext
     {
-        public HospitalManSystemContext() : base("DefaultConnection") { }
-
+        public HospitalManSystemContext() : base("DefaultConnection") {}
+        
         public DbSet<Employment> Employments { get; set; }
         public DbSet<Education> Educations { get; set; }
         public DbSet<Reservation> Reservations { get; set; }

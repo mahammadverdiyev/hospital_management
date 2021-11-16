@@ -22,7 +22,7 @@ namespace HospitalManagementSystem
 
         private bool DoesPasswordMatch(User user, LoginDetail loginDetail)
         {
-            if (loginDetail.Password != user.Password)
+            if (loginDetail.Password != Decryptor.Decrypt(user.Password,Container.PASS))
                return false;
 
             return true;

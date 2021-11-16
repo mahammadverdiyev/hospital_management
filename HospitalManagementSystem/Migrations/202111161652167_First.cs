@@ -57,8 +57,8 @@
                 "dbo.Doctors",
                 c => new
                     {
-                        Id = c.Int(nullable: false),
-                        FullName = c.String(),
+                        Id = c.Int(nullable: false, identity: true),
+                        FullName = c.String(nullable: false),
                         Email = c.String(nullable: false),
                         Password = c.String(nullable: false),
                         BirthDate = c.DateTime(nullable: false),
@@ -71,8 +71,8 @@
                 "dbo.Patients",
                 c => new
                     {
-                        Id = c.Int(nullable: false),
-                        FullName = c.String(),
+                        Id = c.Int(nullable: false, identity: true),
+                        FullName = c.String(nullable: false),
                         Email = c.String(nullable: false),
                         Password = c.String(nullable: false),
                         BirthDate = c.DateTime(nullable: false),
@@ -84,8 +84,8 @@
                 "dbo.Admins",
                 c => new
                     {
-                        Id = c.Int(nullable: false),
-                        FullName = c.String(),
+                        Id = c.Int(nullable: false, identity: true),
+                        FullName = c.String(nullable: false),
                         Email = c.String(nullable: false),
                         Password = c.String(nullable: false),
                         BirthDate = c.DateTime(nullable: false),

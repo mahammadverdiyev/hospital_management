@@ -43,11 +43,12 @@ namespace HospitalManagementSystem
             // registerAsPatient
             // 
             this.registerAsPatient.AutoSize = true;
+            this.registerAsPatient.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.registerAsPatient.Cursor = System.Windows.Forms.Cursors.Hand;
             this.registerAsPatient.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.8F);
             this.registerAsPatient.Location = new System.Drawing.Point(252, 400);
             this.registerAsPatient.Name = "registerAsPatient";
-            this.registerAsPatient.Size = new System.Drawing.Size(227, 29);
+            this.registerAsPatient.Size = new System.Drawing.Size(229, 31);
             this.registerAsPatient.TabIndex = 4;
             this.registerAsPatient.Text = "Register as Patient";
             this.registerAsPatient.Click += new System.EventHandler(this.RegisterAsPatient);
@@ -128,11 +129,11 @@ namespace HospitalManagementSystem
             this.saveDetailsCheckbox.UseVisualStyleBackColor = true;
             this.saveDetailsCheckbox.CheckedChanged += new System.EventHandler(this.SaveDetailsCheckbox_CheckedChanged);
             // 
-            // HospitalManagementSystemForm
+            // LoginPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(782, 453);
             this.Controls.Add(this.saveDetailsCheckbox);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -141,8 +142,12 @@ namespace HospitalManagementSystem
             this.Controls.Add(this.userPassword);
             this.Controls.Add(this.userEmail);
             this.Controls.Add(this.registerAsPatient);
-            this.Name = "HospitalManagementSystemForm";
-            this.Text = "HospitalManagementSystemForm";
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.Name = "LoginPage";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Hospital Management System";
             this.Load += new System.EventHandler(this.HospitalManagementSystemForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

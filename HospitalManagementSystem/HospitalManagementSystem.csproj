@@ -67,20 +67,22 @@
       <DependentUpon>DoctorPage.cs</DependentUpon>
     </Compile>
     <Compile Include="Implementations\LoginDetailIniSetting.cs" />
+    <Compile Include="Migrations\202111161652167_First.cs" />
+    <Compile Include="Migrations\202111161652167_First.designer.cs">
+      <DependentUpon>202111161652167_First.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\RegisterDetail.cs" />
+    <Compile Include="PatientPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientPage.Designer.cs">
+      <DependentUpon>PatientPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="RegisterSystem.cs" />
     <Compile Include="Utility\IniSetting.cs" />
     <Compile Include="Models\LoginDetail.cs" />
     <Compile Include="LoginSystem.cs" />
-    <Compile Include="Migrations\202111152052223_First.cs" />
-    <Compile Include="Migrations\202111152052223_First.designer.cs">
-      <DependentUpon>202111152052223_First.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202111152228496_Second.cs" />
-    <Compile Include="Migrations\202111152228496_Second.designer.cs">
-      <DependentUpon>202111152228496_Second.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Entities\Admin.cs" />
     <Compile Include="Entities\Doctor.cs" />
     <Compile Include="LoginPage.cs">
@@ -110,11 +112,11 @@
     <EmbeddedResource Include="LoginPage.resx">
       <DependentUpon>LoginPage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111152052223_First.resx">
-      <DependentUpon>202111152052223_First.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202111161652167_First.resx">
+      <DependentUpon>202111161652167_First.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111152228496_Second.resx">
-      <DependentUpon>202111152228496_Second.cs</DependentUpon>
+    <EmbeddedResource Include="PatientPage.resx">
+      <DependentUpon>PatientPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

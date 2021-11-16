@@ -40,7 +40,9 @@ namespace HospitalManagementSystem
             };
 
             context.Patients.Add(patient);
-            return null;
+
+            context.SaveChanges();
+            return patient;
         }
 
         public User TryFindUser(LoginDetail loginDetail)

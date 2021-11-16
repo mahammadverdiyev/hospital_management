@@ -66,17 +66,17 @@ namespace HospitalManagementSystem.Models
             return (DateTime.Now.Year - BirthDate.Year) > 7;
         }
 
-
-        private bool IsPhoneNumberValid()
-        {
-
-            return false;
-        }
-
         private bool IsPasswordValid()
         {
-            return false;
+            return Password.Length >= 6;
         }
+
+
+        private bool IsConfirmPassMatch()
+        {
+            return Password == ConfirmPassword;
+        }
+
 
         public string ValidateFields()
         {
@@ -94,8 +94,11 @@ namespace HospitalManagementSystem.Models
             if (!IsBirthDateValid()) 
                 errors.Add("Birth Date is invalid");
 
-            if (!IsPhoneNumberValid())
-                errors.Add("Phone number is invalid");
+            if (!IsConfirmPassMatch())
+                errors.Add("Confirm Password is not same as provided password");
+
+            if (!IsPasswordValid())
+                errors.Add("Password should contain at least 6 character!");
 
             if (errors.Count == 0) return null;
 

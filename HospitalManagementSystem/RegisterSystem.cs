@@ -10,7 +10,8 @@ namespace HospitalManagementSystem
     public class RegisterSystem
     {
         private DatabaseManager databaseManager;
-
+        private Patient registeredPatient;
+        public Patient RegisteredPatient => registeredPatient;
 
         public RegisterSystem(DatabaseManager databaseManager)
         {
@@ -20,8 +21,8 @@ namespace HospitalManagementSystem
         public bool TryRegisterUser(RegisterDetail registerDetail)
         {
             Patient patient = databaseManager.RegisterPatient(registerDetail);
-
-            return false;
+            registeredPatient = patient;
+            return registeredPatient != null;
         }
     }
 }

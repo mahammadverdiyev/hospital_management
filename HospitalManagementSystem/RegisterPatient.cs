@@ -14,6 +14,7 @@ namespace HospitalManagementSystem
     public partial class RegisterPatient : Form
     {
         private RegisterSystem registerSystem;
+        private PatientPage patientPage;
 
         public RegisterPatient()
         {
@@ -27,11 +28,17 @@ namespace HospitalManagementSystem
 
         private void RegisterPatient_Load(object sender, EventArgs e)
         {
-            registerSystem = new RegisterSystem(DatabaseManager.Instance());
         }
 
         private void StartRegisterProcess(object sender, DoWorkEventArgs e)
         {
+            registerSystem = new RegisterSystem(DatabaseManager.Instance());
+
+            if (!phoneNumberTextBox.MaskCompleted)
+            {
+                MessageBox.Show("Provide phone numbe pelase.");
+                return;
+            }
             var registerDetail = new RegisterDetail()
             {
                 FullName = fullNameTextBox.Text.Trim(),
@@ -57,6 +64,12 @@ namespace HospitalManagementSystem
             }
 
             bool successful = registerSystem.TryRegisterUser(registerDetail);
+
+            if (!successful)
+            {
+                MessageBox.Show("Registration is failed due to internal error.");
+                return;
+            }
         }
 
         private void showPasswordCheckBox_CheckedChanged(object sender, EventArgs e)
@@ -72,6 +85,21 @@ namespace HospitalManagementSystem
                 confirmPasswordTextBox.PasswordChar = '•';
             }
             
+        }
+
+        private void phoneNumberTextBox_MouseClick(object sender, MouseEventArgs e)
+        {
+            phoneNumberTextBox.SelectionStart = 4;
+        }
+
+        private void RegistrationProcessCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            if(this.registerSystem.RegisteredPatient != null)
+            {
+                this.patientPage = new PatientPage();
+                this.patientPage.Show();
+
+            }
         }
     }
 }

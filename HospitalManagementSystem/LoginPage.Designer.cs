@@ -1,7 +1,7 @@
 ﻿
 namespace HospitalManagementSystem
 {
-    partial class HospitalManagementSystemForm
+    partial class LoginPage
     {
         /// <summary>
         /// Required designer variable.

@@ -106,7 +106,7 @@ namespace HospitalManagementSystem
             //GetDoctor();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new HospitalManagementSystemForm());
+            Application.Run(new LoginPage());
         }
     }
 }

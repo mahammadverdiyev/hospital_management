@@ -67,6 +67,8 @@
       <DependentUpon>DoctorPage.cs</DependentUpon>
     </Compile>
     <Compile Include="Implementations\LoginDetailIniSetting.cs" />
+    <Compile Include="Models\RegisterDetail.cs" />
+    <Compile Include="RegisterSystem.cs" />
     <Compile Include="Utility\IniSetting.cs" />
     <Compile Include="Models\LoginDetail.cs" />
     <Compile Include="LoginSystem.cs" />
@@ -81,11 +83,11 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Entities\Admin.cs" />
     <Compile Include="Entities\Doctor.cs" />
-    <Compile Include="HospitalManagementSystemForm.cs">
+    <Compile Include="LoginPage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="HospitalManagementSystemForm.Designer.cs">
-      <DependentUpon>HospitalManagementSystemForm.cs</DependentUpon>
+    <Compile Include="LoginPage.Designer.cs">
+      <DependentUpon>LoginPage.cs</DependentUpon>
     </Compile>
     <Compile Include="HospitalManSystemContext.cs" />
     <Compile Include="Entities\Education.cs" />
@@ -105,8 +107,8 @@
     <EmbeddedResource Include="DoctorPage.resx">
       <DependentUpon>DoctorPage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="HospitalManagementSystemForm.resx">
-      <DependentUpon>HospitalManagementSystemForm.cs</DependentUpon>
+    <EmbeddedResource Include="LoginPage.resx">
+      <DependentUpon>LoginPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202111152052223_First.resx">
       <DependentUpon>202111152052223_First.cs</DependentUpon>

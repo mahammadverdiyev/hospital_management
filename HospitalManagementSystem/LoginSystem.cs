@@ -30,9 +30,9 @@ namespace HospitalManagementSystem
 
         public void TryLogUser(LoginDetail loginDetail)
         {
-            bool isValid = loginDetail.IsEmailValid();
+            bool isEmailValid = loginDetail.IsEmailValid();
 
-            if (!isValid)
+            if (!isEmailValid)
             {
                 MessageBox.Show("Invalid email!");
                 return;

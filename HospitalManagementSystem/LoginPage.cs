@@ -14,15 +14,14 @@ using HospitalManagementSystem.Implementations;
 
 namespace HospitalManagementSystem
 {
-    public partial class HospitalManagementSystemForm : Form
+    public partial class LoginPage : Form
     {
-        private HospitalManSystemContext context;
         private DatabaseManager databaseManager;
         private LoginSystem loginSystem;
         private RegisterPatient registerForm;
         private DoctorPage doctorPage;
 
-        public HospitalManagementSystemForm()
+        public LoginPage()
         {
             InitializeComponent();
         }
@@ -56,8 +55,7 @@ namespace HospitalManagementSystem
 
         private void InitializeCriticalInstances()
         {
-            context = new HospitalManSystemContext();
-            databaseManager = new DatabaseManager(context);
+            databaseManager = DatabaseManager.Instance();
             loginSystem = new LoginSystem(databaseManager);
         }
 
@@ -67,10 +65,7 @@ namespace HospitalManagementSystem
             registerForm = new RegisterPatient();
             this.Hide();
 
-            registerForm.FormClosed += (s, eArg) =>
-            {
-                this.Show();
-            };
+            registerForm.FormClosed += (s, eArg) => this.Show();
 
             registerForm.Show();
         }

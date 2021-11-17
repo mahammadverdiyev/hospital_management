@@ -44,8 +44,6 @@ namespace HospitalManagementSystem.Models
         {
             string[] splitted = FullName.Split(new char[] {' '},StringSplitOptions.RemoveEmptyEntries);
 
-            foreach(string s in splitted) Console.WriteLine(s);
-
             if (splitted.Length <= 1) return false;
 
             string singleSpaceSeperatedFullName = string.Join(" ", splitted);

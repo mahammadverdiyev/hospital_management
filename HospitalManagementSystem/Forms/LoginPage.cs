@@ -76,6 +76,7 @@ namespace HospitalManagementSystem
         }
         private void StartLoginProcess(object sender, DoWorkEventArgs e)
         {
+            SaveDetails();
             LoginDetail loginDetail = new LoginDetail()
             {
                 Email = userEmail.Text.Trim(),
@@ -91,7 +92,7 @@ namespace HospitalManagementSystem
             loginSystem.TryLogUser(loginDetail);
         }
 
-        private void SaveDetailsCheckbox_CheckedChanged(object sender, EventArgs e)
+        private void SaveDetails()
         {
             LoginDetailIniSetting loginDetailIni = new LoginDetailIniSetting();
             IniSetting<bool> iniSetting = new IniSetting<bool>();
@@ -103,7 +104,7 @@ namespace HospitalManagementSystem
 
                 if (string.IsNullOrEmpty(email) && string.IsNullOrEmpty(password)) return;
 
-                loginDetailIni.Write("Email", email,"LoginDetail");
+                loginDetailIni.Write("Email", email, "LoginDetail");
                 loginDetailIni.Write("Password", password, "LoginDetail");
 
                 iniSetting.Write("SaveLoginDetails", true);

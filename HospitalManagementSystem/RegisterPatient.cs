@@ -26,10 +26,6 @@ namespace HospitalManagementSystem
             if (!registerWorker.IsBusy) registerWorker.RunWorkerAsync();
         }
 
-        private void RegisterPatient_Load(object sender, EventArgs e)
-        {
-        }
-
         private void StartRegisterProcess(object sender, DoWorkEventArgs e)
         {
             registerSystem = new RegisterSystem(DatabaseManager.Instance());

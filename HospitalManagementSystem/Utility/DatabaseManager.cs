@@ -95,5 +95,10 @@ namespace HospitalManagementSystem
         {
             context.Reservations.Add(reservation);
         }
+
+        public void AddDoctor(Doctor newDoctor)
+        {
+            context.Doctors.Add(newDoctor);
+        }
     }
 }

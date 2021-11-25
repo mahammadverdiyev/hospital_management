@@ -15,7 +15,8 @@ namespace HospitalManagementSystem.Models
 
         public override string ToString()
         {
-            return $"{Position} {JobDescription} {WorkPlace} {StartingDate.ToShortDateString()} - {EndingDate.ToShortDateString()}";
+            return $"Position: {Position}\nJob Description:{JobDescription}\n" +
+                $"Work Place: {WorkPlace}\nYear of Experience: {StartingDate.ToShortDateString()} - {EndingDate.ToShortDateString()}";
         }
     }
 }

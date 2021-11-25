@@ -18,7 +18,6 @@ namespace HospitalManagementSystem
             InitializeComponent();
         }
 
-
         private string _title;
         private string _subTitle;
         private string _thirdTitle;

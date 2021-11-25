@@ -41,9 +41,10 @@
             // 
             this.controlTitle.AutoSize = true;
             this.controlTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.8F);
-            this.controlTitle.Location = new System.Drawing.Point(234, 13);
+            this.controlTitle.Location = new System.Drawing.Point(176, 11);
+            this.controlTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.controlTitle.Name = "controlTitle";
-            this.controlTitle.Size = new System.Drawing.Size(66, 31);
+            this.controlTitle.Size = new System.Drawing.Size(52, 26);
             this.controlTitle.TabIndex = 1;
             this.controlTitle.Text = "Title";
             // 
@@ -51,27 +52,30 @@
             // 
             this.controlSubTitle.AutoSize = true;
             this.controlSubTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.8F);
-            this.controlSubTitle.Location = new System.Drawing.Point(236, 57);
+            this.controlSubTitle.Location = new System.Drawing.Point(178, 54);
+            this.controlSubTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.controlSubTitle.Name = "controlSubTitle";
-            this.controlSubTitle.Size = new System.Drawing.Size(70, 20);
+            this.controlSubTitle.Size = new System.Drawing.Size(59, 17);
             this.controlSubTitle.TabIndex = 2;
             this.controlSubTitle.Text = "Sub title";
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Silver;
-            this.panel2.Location = new System.Drawing.Point(0, 165);
+            this.panel2.Location = new System.Drawing.Point(0, 134);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1500, 1);
+            this.panel2.Size = new System.Drawing.Size(1125, 1);
             this.panel2.TabIndex = 4;
             // 
             // controlIcon
             // 
             this.controlIcon.BackColor = System.Drawing.Color.Transparent;
             this.controlIcon.Image = ((System.Drawing.Image)(resources.GetObject("controlIcon.Image")));
-            this.controlIcon.Location = new System.Drawing.Point(13, 13);
+            this.controlIcon.Location = new System.Drawing.Point(10, 11);
+            this.controlIcon.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.controlIcon.Name = "controlIcon";
-            this.controlIcon.Size = new System.Drawing.Size(153, 140);
+            this.controlIcon.Size = new System.Drawing.Size(115, 114);
             this.controlIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.controlIcon.TabIndex = 0;
             this.controlIcon.TabStop = false;
@@ -80,16 +84,17 @@
             // 
             this.thirdTitle.AutoSize = true;
             this.thirdTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.8F);
-            this.thirdTitle.Location = new System.Drawing.Point(240, 107);
+            this.thirdTitle.Location = new System.Drawing.Point(180, 87);
+            this.thirdTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.thirdTitle.Name = "thirdTitle";
-            this.thirdTitle.Size = new System.Drawing.Size(63, 18);
+            this.thirdTitle.Size = new System.Drawing.Size(54, 15);
             this.thirdTitle.TabIndex = 5;
             this.thirdTitle.Text = "thirdTitle";
             this.thirdTitle.Visible = false;
             // 
             // ListItem
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.thirdTitle);
@@ -97,8 +102,9 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.controlSubTitle);
             this.Controls.Add(this.controlTitle);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "ListItem";
-            this.Size = new System.Drawing.Size(690, 166);
+            this.Size = new System.Drawing.Size(518, 135);
             this.MouseEnter += new System.EventHandler(this.ListItem_MouseEnter);
             this.MouseLeave += new System.EventHandler(this.ListItem_MouseLeave);
             ((System.ComponentModel.ISupportInitialize)(this.controlIcon)).EndInit();

@@ -14,7 +14,7 @@ namespace HospitalManagementSystem.Models
 
         public override string ToString()
         {
-            return $"{University} {Department} {StartingDate.ToShortDateString()} - {EndingDate.ToShortDateString()}";
+            return $"University: {University}\nDepartment: {Department} \nStartingDate: {StartingDate.ToShortDateString()} \nEndingDate: {EndingDate}";
         }
     }
 }

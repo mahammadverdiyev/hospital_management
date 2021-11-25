@@ -5,6 +5,7 @@ using System.Linq;
 using System.Data.Entity;
 using HospitalManagementSystem.Models;
 using HospitalManagementSystem.Utility;
+using HospitalManagementSystem.Forms;
 
 namespace HospitalManagementSystem
 {
@@ -109,7 +110,7 @@ namespace HospitalManagementSystem
             //GetDoctor();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LoginPage());
+            Application.Run(new AdminPage());
             //Application.Run(new PatientPage());
         }
     }

@@ -59,6 +59,30 @@
     <Compile Include="AES\Decryptor.cs" />
     <Compile Include="AES\Encryptor.cs" />
     <Compile Include="Container.cs" />
+    <Compile Include="Forms\AddDoctorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddDoctorForm.Designer.cs">
+      <DependentUpon>AddDoctorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AddEducationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddEducationForm.Designer.cs">
+      <DependentUpon>AddEducationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AddEmploymentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddEmploymentForm.Designer.cs">
+      <DependentUpon>AddEmploymentForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AdminPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AdminPage.Designer.cs">
+      <DependentUpon>AdminPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\DoctorDetail.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -137,6 +161,18 @@
       <DependentUpon>RegisterPatient.cs</DependentUpon>
     </Compile>
     <Compile Include="Utility\IniFile.cs" />
+    <EmbeddedResource Include="Forms\AddDoctorForm.resx">
+      <DependentUpon>AddDoctorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AddEducationForm.resx">
+      <DependentUpon>AddEducationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AddEmploymentForm.resx">
+      <DependentUpon>AddEmploymentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AdminPage.resx">
+      <DependentUpon>AdminPage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\DoctorDetail.resx">
       <DependentUpon>DoctorDetail.cs</DependentUpon>
     </EmbeddedResource>

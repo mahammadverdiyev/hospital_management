@@ -11,7 +11,7 @@ namespace HospitalManagementSystem
     public class LoginSystem
     {
         private DatabaseManager databaseManager;
-        private User LoggedUser;
+        public static User LoggedUser;
 
         public User GetLoggedUser => LoggedUser;
 

@@ -20,6 +20,7 @@ namespace HospitalManagementSystem
         private LoginSystem loginSystem;
         private RegisterPatient registerForm;
         private DoctorPage doctorPage;
+        private PatientPage patientPage;
 
         public LoginPage()
         {
@@ -119,11 +120,25 @@ namespace HospitalManagementSystem
         private void LoginWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             User loggedUser = loginSystem.GetLoggedUser;
-
+            
             if (loggedUser != null)
             {
-                doctorPage = new DoctorPage();
-                doctorPage.Show();
+                switch (loggedUser)
+                {
+                    case Doctor d:
+                        doctorPage = new DoctorPage();
+                        doctorPage.Show();
+                        break;
+
+                    case Patient p:
+                        patientPage = new PatientPage();
+                        patientPage.Show();
+                        break;
+
+                    default:
+                        // admin
+                        break;
+                }
             }
         }
     }

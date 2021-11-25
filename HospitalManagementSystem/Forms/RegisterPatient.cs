@@ -1,4 +1,5 @@
 ﻿using HospitalManagementSystem.Models;
+using HospitalManagementSystem.Utility;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,6 +16,7 @@ namespace HospitalManagementSystem
     {
         private RegisterSystem registerSystem;
         private PatientPage patientPage;
+        private Bitmap avatar;
 
         public RegisterPatient()
         {
@@ -35,14 +37,25 @@ namespace HospitalManagementSystem
                 MessageBox.Show("Provide phone numbe pelase.");
                 return;
             }
+
+
+            string sex = "";
+
+            this.Invoke((MethodInvoker)delegate ()
+            {
+                sex = sexComboBox.Text;
+            });
+
             var registerDetail = new RegisterDetail()
             {
+                ImageData = FileUtility.ImageToByteArray(avatar),
                 FullName = fullNameTextBox.Text.Trim(),
                 Email = emailTextBox.Text.Trim(),
                 Password = passwordTextBox.Text.Trim(),
                 ConfirmPassword = confirmPasswordTextBox.Text.Trim(),
                 PhoneNumber = phoneNumberTextBox.Text.Trim(),
-                BirthDate = birthDatePicker.Value
+                BirthDate = birthDatePicker.Value,
+                Sex = sex
             };
 
             if (registerDetail.IsThereEmptyField())
@@ -94,7 +107,20 @@ namespace HospitalManagementSystem
             {
                 this.patientPage = new PatientPage();
                 this.patientPage.Show();
+            }
+        }
 
+        private void selectPictureButton_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog dialog = new OpenFileDialog())
+            {
+                dialog.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
+                dialog.Title = "Open Image";
+
+                if (dialog.ShowDialog() == DialogResult.OK)
+                {
+                    avatar = new Bitmap(dialog.FileName);
+                }
             }
         }
     }

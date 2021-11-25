@@ -10,12 +10,13 @@ namespace HospitalManagementSystem.Models
 {
     public abstract class User
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
         [Required]
         public string FullName { get; set; }
-        
+
+        [Required]
+        public string Sex { get; set; }
+
+        [Key]
         [Required]
         public string Email { get; set; }
         
@@ -23,5 +24,7 @@ namespace HospitalManagementSystem.Models
         public string Password { get; set; }
 
         public DateTime BirthDate { get; set; }
+
+        public byte[] Image { get; set; }
     }
 }

@@ -22,6 +22,7 @@ namespace HospitalManagementSystem
         {
             Patient patient = databaseManager.RegisterPatient(registerDetail);
             registeredPatient = patient;
+            LoginSystem.LoggedUser = patient;
             return registeredPatient != null;
         }
     }

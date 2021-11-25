@@ -17,12 +17,13 @@ namespace HospitalManagementSystem
 
             Doctor doctor = new Doctor()
             {
+                Sex = "Male",
                 FullName = "Mahammad Verdiyev",
                 BirthDate = DateTime.Now,
                 Email = "mverdiyev2@std.beu.edu.az",
                 PhoneNumber = "+994557148264",
                 Position = "Junior Java Developer",
-                Password = "12345"
+                Password = Encryptor.Encrypt("mahammad2001",Container.PASS),
             };
 
             List<Education> educations = new List<Education>() {
@@ -107,6 +108,7 @@ namespace HospitalManagementSystem
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new LoginPage());
+            //Application.Run(new PatientPage());
         }
     }
 }

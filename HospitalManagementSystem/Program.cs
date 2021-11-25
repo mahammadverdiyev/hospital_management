@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using System.Linq;
 using System.Data.Entity;
 using HospitalManagementSystem.Models;
+using HospitalManagementSystem.Utility;
 
 namespace HospitalManagementSystem
 {
@@ -17,6 +18,7 @@ namespace HospitalManagementSystem
 
             Doctor doctor = new Doctor()
             {
+                Image = FileUtility.ImageToByteArray(HospitalManagementSystem.Properties.Resources.male),
                 Sex = "Male",
                 FullName = "Mahammad Verdiyev",
                 BirthDate = DateTime.Now,

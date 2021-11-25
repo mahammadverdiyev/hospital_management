@@ -123,15 +123,21 @@ namespace HospitalManagementSystem
             
             if (loggedUser != null)
             {
+                Form page = null;
+
                 switch (loggedUser)
                 {
                     case Doctor d:
                         doctorPage = new DoctorPage();
+                        page = doctorPage;
+                        doctorPage.LogoutButton.Click += (_sender, _eArgs) => doctorPage.Close();
                         doctorPage.Show();
                         break;
 
                     case Patient p:
                         patientPage = new PatientPage();
+                        page = patientPage;
+                        patientPage.LogoutButton.Click += (_sender, _eArgs) => patientPage.Close();
                         patientPage.Show();
                         break;
 
@@ -139,6 +145,18 @@ namespace HospitalManagementSystem
                         // admin
                         break;
                 }
+
+
+                if(page != null)
+                {
+                    page.FormClosing += (_sender, _eArgs) =>
+                    {
+                        LoginSystem.LoggedUser = null;
+                        this.Show();
+                    };
+                }
+
+                this.Hide();
             }
         }
     }

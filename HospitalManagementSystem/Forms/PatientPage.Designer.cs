@@ -31,12 +31,12 @@ namespace HospitalManagementSystem
         {
             this.doctorList = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.userAvatar = new System.Windows.Forms.PictureBox();
-            this.logoutButton = new System.Windows.Forms.Button();
-            this.labelFullName = new System.Windows.Forms.Label();
-            this.myProfileButton = new System.Windows.Forms.Button();
             this.reservationsButton = new System.Windows.Forms.Button();
+            this.myProfileButton = new System.Windows.Forms.Button();
+            this.labelFullName = new System.Windows.Forms.Label();
+            this.logoutButton = new System.Windows.Forms.Button();
+            this.userAvatar = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userAvatar)).BeginInit();
             this.SuspendLayout();
@@ -66,25 +66,46 @@ namespace HospitalManagementSystem
             this.panel1.Size = new System.Drawing.Size(262, 696);
             this.panel1.TabIndex = 3;
             // 
-            // label1
+            // reservationsButton
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.8F);
-            this.label1.Location = new System.Drawing.Point(590, 20);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(207, 29);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Available doctors";
+            this.reservationsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.reservationsButton.FlatAppearance.BorderSize = 0;
+            this.reservationsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.reservationsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.reservationsButton.ForeColor = System.Drawing.Color.White;
+            this.reservationsButton.Location = new System.Drawing.Point(12, 343);
+            this.reservationsButton.Name = "reservationsButton";
+            this.reservationsButton.Size = new System.Drawing.Size(230, 55);
+            this.reservationsButton.TabIndex = 4;
+            this.reservationsButton.Text = "My Reservations";
+            this.reservationsButton.UseVisualStyleBackColor = false;
+            this.reservationsButton.Click += new System.EventHandler(this.reservationsButton_Click);
             // 
-            // userAvatar
+            // myProfileButton
             // 
-            this.userAvatar.Image = global::HospitalManagementSystem.Properties.Resources.male;
-            this.userAvatar.Location = new System.Drawing.Point(12, 20);
-            this.userAvatar.Name = "userAvatar";
-            this.userAvatar.Size = new System.Drawing.Size(230, 168);
-            this.userAvatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.userAvatar.TabIndex = 0;
-            this.userAvatar.TabStop = false;
+            this.myProfileButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.myProfileButton.FlatAppearance.BorderSize = 0;
+            this.myProfileButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.myProfileButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.myProfileButton.ForeColor = System.Drawing.Color.White;
+            this.myProfileButton.Location = new System.Drawing.Point(12, 265);
+            this.myProfileButton.Name = "myProfileButton";
+            this.myProfileButton.Size = new System.Drawing.Size(230, 55);
+            this.myProfileButton.TabIndex = 3;
+            this.myProfileButton.Text = "My Profile";
+            this.myProfileButton.UseVisualStyleBackColor = false;
+            this.myProfileButton.Click += new System.EventHandler(this.myProfileButton_Click);
+            // 
+            // labelFullName
+            // 
+            this.labelFullName.AutoSize = true;
+            this.labelFullName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
+            this.labelFullName.ForeColor = System.Drawing.Color.White;
+            this.labelFullName.Location = new System.Drawing.Point(12, 206);
+            this.labelFullName.Name = "labelFullName";
+            this.labelFullName.Size = new System.Drawing.Size(97, 24);
+            this.labelFullName.TabIndex = 2;
+            this.labelFullName.Text = "Full Name";
             // 
             // logoutButton
             // 
@@ -100,44 +121,25 @@ namespace HospitalManagementSystem
             this.logoutButton.Text = "Log out";
             this.logoutButton.UseVisualStyleBackColor = false;
             // 
-            // labelFullName
+            // userAvatar
             // 
-            this.labelFullName.AutoSize = true;
-            this.labelFullName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
-            this.labelFullName.ForeColor = System.Drawing.Color.White;
-            this.labelFullName.Location = new System.Drawing.Point(12, 206);
-            this.labelFullName.Name = "labelFullName";
-            this.labelFullName.Size = new System.Drawing.Size(97, 24);
-            this.labelFullName.TabIndex = 2;
-            this.labelFullName.Text = "Full Name";
+            this.userAvatar.Image = global::HospitalManagementSystem.Properties.Resources.male;
+            this.userAvatar.Location = new System.Drawing.Point(12, 20);
+            this.userAvatar.Name = "userAvatar";
+            this.userAvatar.Size = new System.Drawing.Size(230, 168);
+            this.userAvatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.userAvatar.TabIndex = 0;
+            this.userAvatar.TabStop = false;
             // 
-            // myProfileButton
+            // label1
             // 
-            this.myProfileButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.myProfileButton.FlatAppearance.BorderSize = 0;
-            this.myProfileButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.myProfileButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.myProfileButton.ForeColor = System.Drawing.Color.White;
-            this.myProfileButton.Location = new System.Drawing.Point(12, 265);
-            this.myProfileButton.Name = "myProfileButton";
-            this.myProfileButton.Size = new System.Drawing.Size(230, 55);
-            this.myProfileButton.TabIndex = 3;
-            this.myProfileButton.Text = "My Profile";
-            this.myProfileButton.UseVisualStyleBackColor = false;
-            // 
-            // reservationsButton
-            // 
-            this.reservationsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.reservationsButton.FlatAppearance.BorderSize = 0;
-            this.reservationsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.reservationsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.reservationsButton.ForeColor = System.Drawing.Color.White;
-            this.reservationsButton.Location = new System.Drawing.Point(12, 343);
-            this.reservationsButton.Name = "reservationsButton";
-            this.reservationsButton.Size = new System.Drawing.Size(230, 55);
-            this.reservationsButton.TabIndex = 4;
-            this.reservationsButton.Text = "My Reservations";
-            this.reservationsButton.UseVisualStyleBackColor = false;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.8F);
+            this.label1.Location = new System.Drawing.Point(590, 20);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(207, 29);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Available doctors";
             // 
             // PatientPage
             // 

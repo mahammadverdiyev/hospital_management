@@ -30,8 +30,10 @@ namespace HospitalManagementSystem.Forms
         {
             if (datePicker.Value.Day == DateTime.Now.Day)
             {
+                Console.WriteLine("TEST 1");
                 if (timePicker.Value.Hour == DateTime.Now.Hour)
                 {
+                    Console.WriteLine("TEST 2");
                     if (timePicker.Value.Minute < DateTime.Now.Minute)
                     {
                         return false;
@@ -39,11 +41,13 @@ namespace HospitalManagementSystem.Forms
                 }
                 else if (timePicker.Value.Hour < DateTime.Now.Hour)
                 {
+                    Console.WriteLine("TEST 3");
                     return false;
                 }
             }
-            else if (datePicker.Value.Day < DateTime.Now.Day)
+            else if (datePicker.Value < DateTime.Now)
             {
+                Console.WriteLine("TEST 4");
                 return false;
             }
 
@@ -110,7 +114,7 @@ namespace HospitalManagementSystem.Forms
             
             Reservation reservation = new Reservation()
             {
-                Approved = false,
+                Status = "Pending",
                 Date = date,
                 Description = descriptionTextBox.Text,
                 Doctor = doctor,
@@ -120,6 +124,9 @@ namespace HospitalManagementSystem.Forms
             var dbManager = DatabaseManager.Instance();
             dbManager.AddReservation(reservation);
             dbManager.SaveChanges();
+
+            MessageBox.Show("Success!");
+            this.Close();
         }
 
     }

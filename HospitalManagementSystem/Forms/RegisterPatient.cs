@@ -46,6 +46,16 @@ namespace HospitalManagementSystem
                 sex = sexComboBox.Text;
             });
 
+
+
+            if (avatar == null)
+            {
+                if (sex.Equals("Male"))
+                    avatar = HospitalManagementSystem.Properties.Resources.male;
+                else
+                    avatar = HospitalManagementSystem.Properties.Resources.female;
+            }
+        
             var registerDetail = new RegisterDetail()
             {
                 ImageData = FileUtility.ImageToByteArray(avatar),
@@ -57,6 +67,8 @@ namespace HospitalManagementSystem
                 BirthDate = birthDatePicker.Value,
                 Sex = sex
             };
+
+            avatar = null;
 
             if (registerDetail.IsThereEmptyField())
             {
@@ -107,6 +119,16 @@ namespace HospitalManagementSystem
             {
                 this.patientPage = new PatientPage();
                 this.patientPage.Show();
+
+                patientPage.FormClosed += (_sender, _eArgs) => 
+                {
+                    Application.Exit();
+                };
+
+                patientPage.LogoutButton.Click += (_sender, _eArgs) =>
+                {
+                    this.Show();
+                };
             }
         }
 

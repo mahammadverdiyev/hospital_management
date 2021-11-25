@@ -71,15 +71,27 @@
     <Compile Include="Forms\ReservationDetail.Designer.cs">
       <DependentUpon>ReservationDetail.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\ReservationInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ReservationInfo.Designer.cs">
+      <DependentUpon>ReservationInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ReservationListPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ReservationListPage.Designer.cs">
+      <DependentUpon>ReservationListPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="ListItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="ListItem.Designer.cs">
       <DependentUpon>ListItem.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202111250156431_Firs.cs" />
-    <Compile Include="Migrations\202111250156431_Firs.designer.cs">
-      <DependentUpon>202111250156431_Firs.cs</DependentUpon>
+    <Compile Include="Migrations\202111252044328_First.cs" />
+    <Compile Include="Migrations\202111252044328_First.designer.cs">
+      <DependentUpon>202111252044328_First.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Utility\DatabaseManager.cs" />
@@ -137,14 +149,20 @@
     <EmbeddedResource Include="Forms\ReservationDetail.resx">
       <DependentUpon>ReservationDetail.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ReservationInfo.resx">
+      <DependentUpon>ReservationInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ReservationListPage.resx">
+      <DependentUpon>ReservationListPage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ListItem.resx">
       <DependentUpon>ListItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\PatientPage.resx">
       <DependentUpon>PatientPage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111250156431_Firs.resx">
-      <DependentUpon>202111250156431_Firs.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202111252044328_First.resx">
+      <DependentUpon>202111252044328_First.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

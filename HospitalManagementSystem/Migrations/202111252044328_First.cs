@@ -3,7 +3,7 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Firs : DbMigration
+    public partial class First : DbMigration
     {
         public override void Up()
         {
@@ -45,7 +45,7 @@
                         Id = c.Int(nullable: false, identity: true),
                         Date = c.DateTime(nullable: false),
                         Description = c.String(),
-                        Approved = c.Boolean(nullable: false),
+                        Status = c.String(nullable: false),
                         Doctor_Email = c.String(maxLength: 128),
                         Patient_Email = c.String(maxLength: 128),
                     })

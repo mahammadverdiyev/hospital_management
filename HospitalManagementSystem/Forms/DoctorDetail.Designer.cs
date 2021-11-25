@@ -29,7 +29,6 @@ namespace HospitalManagementSystem.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.doctorFullName = new System.Windows.Forms.Label();
             this.doctorPosition = new System.Windows.Forms.Label();
             this.doctorPhoneNumber = new System.Windows.Forms.Label();
@@ -40,16 +39,9 @@ namespace HospitalManagementSystem.Forms
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.doctorImage = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.doctorImage)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(24, 23);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(214, 194);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // doctorFullName
             // 
@@ -57,7 +49,7 @@ namespace HospitalManagementSystem.Forms
             this.doctorFullName.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.doctorFullName.Location = new System.Drawing.Point(316, 23);
             this.doctorFullName.Name = "doctorFullName";
-            this.doctorFullName.Size = new System.Drawing.Size(231, 33);
+            this.doctorFullName.Size = new System.Drawing.Size(224, 32);
             this.doctorFullName.TabIndex = 1;
             this.doctorFullName.Text = "Name Surname";
             // 
@@ -143,7 +135,7 @@ namespace HospitalManagementSystem.Forms
             this.label3.ForeColor = System.Drawing.Color.Teal;
             this.label3.Location = new System.Drawing.Point(316, 80);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(108, 29);
+            this.label3.Size = new System.Drawing.Size(98, 26);
             this.label3.TabIndex = 9;
             this.label3.Text = "Position";
             // 
@@ -157,6 +149,15 @@ namespace HospitalManagementSystem.Forms
             this.label4.Size = new System.Drawing.Size(152, 24);
             this.label4.TabIndex = 10;
             this.label4.Text = "Phone Number";
+            // 
+            // doctorImage
+            // 
+            this.doctorImage.Location = new System.Drawing.Point(24, 23);
+            this.doctorImage.Name = "doctorImage";
+            this.doctorImage.Size = new System.Drawing.Size(214, 194);
+            this.doctorImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.doctorImage.TabIndex = 0;
+            this.doctorImage.TabStop = false;
             // 
             // DoctorDetail
             // 
@@ -173,14 +174,15 @@ namespace HospitalManagementSystem.Forms
             this.Controls.Add(this.doctorPhoneNumber);
             this.Controls.Add(this.doctorPosition);
             this.Controls.Add(this.doctorFullName);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.doctorImage);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "DoctorDetail";
+            this.ShowIcon = false;
             this.Text = "DoctorDetail";
             this.Load += new System.EventHandler(this.DoctorDetail_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.doctorImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -188,7 +190,7 @@ namespace HospitalManagementSystem.Forms
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox doctorImage;
         private System.Windows.Forms.Label doctorFullName;
         private System.Windows.Forms.Label doctorPosition;
         private System.Windows.Forms.Label doctorPhoneNumber;

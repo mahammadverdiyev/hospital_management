@@ -17,6 +17,8 @@ namespace HospitalManagementSystem
     {
         List<Doctor> availableDoctors;
 
+        public Button LogoutButton => logoutButton;
+
         public PatientPage()
         {
             InitializeComponent();
@@ -26,17 +28,8 @@ namespace HospitalManagementSystem
         {
             Patient patient = LoginSystem.LoggedUser as Patient;
 
-            if(patient.Image == null)
-            {
-                if (patient.Sex.Equals("Male"))
-                    userAvatar.Image = HospitalManagementSystem.Properties.Resources.male;
-                else
-                    userAvatar.Image = HospitalManagementSystem.Properties.Resources.female;
-            }
-            else
-            {
-                userAvatar.Image = FileUtility.ByteArrayToImage(patient.Image);
-            }
+
+            userAvatar.Image = FileUtility.ByteArrayToImage(patient.Image);
 
             labelFullName.Text = patient.FullName;
             GetAvailableDoctors();
@@ -67,6 +60,21 @@ namespace HospitalManagementSystem
 
                 doctorList.Controls.Add(item);
             }
+        }
+
+        public  void logoutButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void myProfileButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void reservationsButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

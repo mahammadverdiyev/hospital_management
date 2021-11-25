@@ -1,4 +1,5 @@
 ﻿using HospitalManagementSystem.Models;
+using HospitalManagementSystem.Utility;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,7 +14,9 @@ namespace HospitalManagementSystem.Forms
 {
     public partial class DoctorDetail : Form
     {
-        Doctor currentDoctor;
+        private Doctor currentDoctor;
+
+        public Button MakeReservationButton { get => makeReservationButton; }
 
         public DoctorDetail(Doctor doctor)
         {
@@ -23,6 +26,7 @@ namespace HospitalManagementSystem.Forms
 
         private void DoctorDetail_Load(object sender, EventArgs e)
         {
+            doctorImage.Image = FileUtility.ByteArrayToImage(currentDoctor.Image);
             doctorFullName.Text = currentDoctor.FullName;
             doctorPhoneNumber.Text = currentDoctor.PhoneNumber;
             doctorPosition.Text = currentDoctor.Position;

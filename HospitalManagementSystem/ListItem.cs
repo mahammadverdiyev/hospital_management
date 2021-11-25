@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HospitalManagementSystem.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,6 +21,14 @@ namespace HospitalManagementSystem
 
         private string _title;
         private string _subTitle;
+        private string _thirdTitle;
+        private Reservation reservation;
+        
+        public Reservation Reservation
+        {
+            get { return reservation; }
+            set { reservation = value; }
+        }
 
         public string Title
         {
@@ -31,6 +40,17 @@ namespace HospitalManagementSystem
         {
             get { return _subTitle; }
             set { _subTitle = value; controlSubTitle.Text = value; }
+        }
+
+        public string ThirdTitle
+        {
+            get { return _thirdTitle;  }
+            set
+            {
+                _thirdTitle = value;
+                thirdTitle.Visible = true;
+                thirdTitle.Text = value;
+            }
         }
 
         private Image _icon;

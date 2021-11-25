@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Entity;
 
 namespace HospitalManagementSystem
 {
@@ -29,6 +30,11 @@ namespace HospitalManagementSystem
             context.SaveChanges();
         }
 
+        public Doctor GetDoctorByEmail(string email)
+        {
+            return GetAllDoctors().FirstOrDefault(doctor => doctor.Email == email);
+        }
+
         public List<Doctor>  GetAllDoctors()
         {
 
@@ -36,6 +42,7 @@ namespace HospitalManagementSystem
                                     .Include("Employments")
                                     .Include("Educations")
                                     .Include("Reservations")
+                                    .Include(doctor => doctor.Reservations.Select(res => res.Patient))
                                     .ToList();
 
             return allDoctors;

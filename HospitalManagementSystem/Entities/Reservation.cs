@@ -13,6 +13,6 @@ namespace HospitalManagementSystem.Models
         public string Description { get; set; }
 
         [Required]
-        public bool Approved { get; set; }
+        public string Status { get; set; }
     }
 }

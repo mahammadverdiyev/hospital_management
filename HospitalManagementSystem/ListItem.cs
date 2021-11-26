@@ -18,16 +18,28 @@ namespace HospitalManagementSystem
             InitializeComponent();
         }
 
+        public Button RemoveButton
+        {
+            get { return removeButton; }
+        }
+
+        public void MakeButtonVisible()
+        {
+            removeButton.Visible = true;
+        }
+
+        private Color defaultBackColor = Color.White;
         private string _title;
         private string _subTitle;
         private string _thirdTitle;
         private Reservation reservation;
-        
+
         public Reservation Reservation
         {
             get { return reservation; }
             set { reservation = value; }
         }
+
 
         public string Title
         {
@@ -52,6 +64,12 @@ namespace HospitalManagementSystem
             }
         }
 
+        public void SetBackColor(Color color)
+        {
+            this.BackColor = color;
+            defaultBackColor = color;
+        }
+
         private Image _icon;
 
         public Image Icon
@@ -67,7 +85,7 @@ namespace HospitalManagementSystem
 
         private void ListItem_MouseLeave(object sender, EventArgs e)
         {
-            this.BackColor = Color.White;
+            this.BackColor = defaultBackColor;
         }
     }
 }

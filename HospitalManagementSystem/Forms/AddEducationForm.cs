@@ -21,15 +21,15 @@ namespace HospitalManagementSystem.Forms
         {
             string university = universityTextBox.Text;
             string department = departmentTextBox.Text;
-            DateTime startingDate = startingDateDateTimePicker.Value;
-            DateTime endingDate = endingDateDateTimePicker.Value;
+
+
 
             Education education = new Education()
             {
+                StartingDate = startingDateDateTimePicker.Value,
+                EndingDate =endingDateDateTimePicker.Value,
                 University = university,
                 Department = department,
-                StartingDate = startingDate,
-                EndingDate = endingDate
             };
 
             addedEducations.Add(education);

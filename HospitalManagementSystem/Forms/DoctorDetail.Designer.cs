@@ -100,7 +100,7 @@ namespace HospitalManagementSystem.Forms
             // 
             this.doctorEmployments.AutoSize = true;
             this.doctorEmployments.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.8F);
-            this.doctorEmployments.Location = new System.Drawing.Point(318, 363);
+            this.doctorEmployments.Location = new System.Drawing.Point(315, 454);
             this.doctorEmployments.Name = "doctorEmployments";
             this.doctorEmployments.Size = new System.Drawing.Size(99, 18);
             this.doctorEmployments.TabIndex = 6;
@@ -122,7 +122,7 @@ namespace HospitalManagementSystem.Forms
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Teal;
-            this.label2.Location = new System.Drawing.Point(318, 324);
+            this.label2.Location = new System.Drawing.Point(316, 396);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(136, 24);
             this.label2.TabIndex = 8;

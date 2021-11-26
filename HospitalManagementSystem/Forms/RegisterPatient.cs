@@ -17,9 +17,11 @@ namespace HospitalManagementSystem
         private RegisterSystem registerSystem;
         private PatientPage patientPage;
         private Bitmap avatar;
+        private LoginPage loginPage;
 
-        public RegisterPatient()
+        public RegisterPatient(LoginPage loginPage)
         {
+            this.loginPage = loginPage;
             InitializeComponent();
         }
 
@@ -120,14 +122,13 @@ namespace HospitalManagementSystem
                 this.patientPage = new PatientPage();
                 this.patientPage.Show();
 
-                patientPage.FormClosed += (_sender, _eArgs) => 
-                {
-                    Application.Exit();
-                };
+                patientPage.LogoutButton.Click += (_sender, _eArgs) => patientPage.Close();
 
-                patientPage.LogoutButton.Click += (_sender, _eArgs) =>
+
+                patientPage.FormClosing += (_sender, _eArgs) => 
                 {
-                    this.Show();
+                    LoginSystem.LoggedUser = null;
+                    loginPage.Show();  
                 };
             }
         }

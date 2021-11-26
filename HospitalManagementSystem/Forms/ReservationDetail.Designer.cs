@@ -63,24 +63,28 @@ namespace HospitalManagementSystem.Forms
             // 
             // okButton
             // 
+            this.okButton.BackColor = System.Drawing.Color.Green;
             this.okButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.8F);
+            this.okButton.ForeColor = System.Drawing.Color.White;
             this.okButton.Location = new System.Drawing.Point(622, 703);
             this.okButton.Name = "okButton";
             this.okButton.Size = new System.Drawing.Size(166, 43);
             this.okButton.TabIndex = 2;
             this.okButton.Text = "OK";
-            this.okButton.UseVisualStyleBackColor = true;
+            this.okButton.UseVisualStyleBackColor = false;
             this.okButton.Click += new System.EventHandler(this.SetReservation);
             // 
             // cancelButton
             // 
+            this.cancelButton.BackColor = System.Drawing.Color.Red;
             this.cancelButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.8F);
+            this.cancelButton.ForeColor = System.Drawing.Color.White;
             this.cancelButton.Location = new System.Drawing.Point(421, 703);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(166, 43);
             this.cancelButton.TabIndex = 3;
             this.cancelButton.Text = "CANCEL";
-            this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.UseVisualStyleBackColor = false;
             this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
             // label2

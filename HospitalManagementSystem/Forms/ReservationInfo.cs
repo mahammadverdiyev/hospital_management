@@ -18,10 +18,13 @@ namespace HospitalManagementSystem.Forms
 
         public Button DeclineButton => declineButton;
         public Button AcceptButton => acceptButton;
+        
+        private ReservationListPage listPage;
 
-        public ReservationInfo(Reservation reservation)
+        public ReservationInfo(Reservation reservation, ReservationListPage listPage)
         {
             this.reservation = reservation;
+            this.listPage = listPage;
             InitializeComponent();
         }
 
@@ -41,6 +44,8 @@ namespace HospitalManagementSystem.Forms
             dbManager.SaveChanges();
 
             MessageBox.Show("Reservation Accepted!");
+            listPage.RemoveReservationItemByPatientEmail(reservation.Patient.Email);
+            this.Close();
         }
 
         private void DeclineButton_Click(object sender, EventArgs e)
@@ -50,7 +55,8 @@ namespace HospitalManagementSystem.Forms
             dbManager.SaveChanges();
 
             MessageBox.Show("Reservation Declined!");
-
+            listPage.RemoveReservationItemByPatientEmail(reservation.Patient.Email);
+            this.Close();
         }
     }
 }

@@ -39,8 +39,16 @@ namespace HospitalManagementSystem
             this.acceptedReservationsButton = new System.Windows.Forms.Button();
             this.requestedReservationsButton = new System.Windows.Forms.Button();
             this.reservationPanel = new System.Windows.Forms.Panel();
+            this.resPatientAvatar = new System.Windows.Forms.PictureBox();
+            this.noResLabel = new System.Windows.Forms.Label();
+            this.nextReservationDateLabel = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.fullNameLabel = new System.Windows.Forms.Label();
+            this.descriptionLabel = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userAvatar)).BeginInit();
+            this.reservationPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.resPatientAvatar)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -157,10 +165,75 @@ namespace HospitalManagementSystem
             // 
             // reservationPanel
             // 
+            this.reservationPanel.Controls.Add(this.descriptionLabel);
+            this.reservationPanel.Controls.Add(this.fullNameLabel);
+            this.reservationPanel.Controls.Add(this.resPatientAvatar);
+            this.reservationPanel.Controls.Add(this.nextReservationDateLabel);
+            this.reservationPanel.Controls.Add(this.label4);
             this.reservationPanel.Location = new System.Drawing.Point(282, 20);
             this.reservationPanel.Name = "reservationPanel";
             this.reservationPanel.Size = new System.Drawing.Size(747, 224);
             this.reservationPanel.TabIndex = 10;
+            // 
+            // resPatientAvatar
+            // 
+            this.resPatientAvatar.Location = new System.Drawing.Point(12, 30);
+            this.resPatientAvatar.Name = "resPatientAvatar";
+            this.resPatientAvatar.Size = new System.Drawing.Size(181, 168);
+            this.resPatientAvatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.resPatientAvatar.TabIndex = 4;
+            this.resPatientAvatar.TabStop = false;
+            // 
+            // noResLabel
+            // 
+            this.noResLabel.AutoSize = true;
+            this.noResLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F);
+            this.noResLabel.Location = new System.Drawing.Point(400, 261);
+            this.noResLabel.Name = "noResLabel";
+            this.noResLabel.Size = new System.Drawing.Size(498, 48);
+            this.noResLabel.TabIndex = 3;
+            this.noResLabel.Text = "You have no Reservation.";
+            this.noResLabel.Visible = false;
+            // 
+            // nextReservationDateLabel
+            // 
+            this.nextReservationDateLabel.AutoSize = true;
+            this.nextReservationDateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.8F);
+            this.nextReservationDateLabel.Location = new System.Drawing.Point(471, 30);
+            this.nextReservationDateLabel.Name = "nextReservationDateLabel";
+            this.nextReservationDateLabel.Size = new System.Drawing.Size(205, 25);
+            this.nextReservationDateLabel.TabIndex = 2;
+            this.nextReservationDateLabel.Text = "Next reservation Date:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.8F);
+            this.label4.Location = new System.Drawing.Point(221, 30);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(205, 25);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "Next reservation Date:";
+            // 
+            // fullNameLabel
+            // 
+            this.fullNameLabel.AutoSize = true;
+            this.fullNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.8F);
+            this.fullNameLabel.Location = new System.Drawing.Point(221, 88);
+            this.fullNameLabel.Name = "fullNameLabel";
+            this.fullNameLabel.Size = new System.Drawing.Size(106, 26);
+            this.fullNameLabel.TabIndex = 11;
+            this.fullNameLabel.Text = "FullName";
+            // 
+            // descriptionLabel
+            // 
+            this.descriptionLabel.AutoSize = true;
+            this.descriptionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.8F);
+            this.descriptionLabel.Location = new System.Drawing.Point(221, 142);
+            this.descriptionLabel.Name = "descriptionLabel";
+            this.descriptionLabel.Size = new System.Drawing.Size(121, 26);
+            this.descriptionLabel.TabIndex = 12;
+            this.descriptionLabel.Text = "Description";
             // 
             // DoctorPage
             // 
@@ -168,6 +241,7 @@ namespace HospitalManagementSystem
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1041, 692);
             this.Controls.Add(this.reservationPanel);
+            this.Controls.Add(this.noResLabel);
             this.Controls.Add(this.requestedReservationsButton);
             this.Controls.Add(this.acceptedReservationsButton);
             this.Controls.Add(this.panel1);
@@ -182,6 +256,9 @@ namespace HospitalManagementSystem
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userAvatar)).EndInit();
+            this.reservationPanel.ResumeLayout(false);
+            this.reservationPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.resPatientAvatar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -199,5 +276,11 @@ namespace HospitalManagementSystem
         private System.Windows.Forms.Button acceptedReservationsButton;
         private System.Windows.Forms.Button requestedReservationsButton;
         private System.Windows.Forms.Panel reservationPanel;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label nextReservationDateLabel;
+        private System.Windows.Forms.Label noResLabel;
+        private System.Windows.Forms.PictureBox resPatientAvatar;
+        private System.Windows.Forms.Label fullNameLabel;
+        private System.Windows.Forms.Label descriptionLabel;
     }
 }

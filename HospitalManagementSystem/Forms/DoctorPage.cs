@@ -37,6 +37,27 @@ namespace HospitalManagementSystem
         private void DoctorPage_Load(object sender, EventArgs e)
         {
             labelFullName.Text = currentDoctor.FullName;
+
+            currentDoctor = DatabaseManager.Instance().GetDoctorFullyByEmail(currentDoctor.Email);
+
+            var reservations = currentDoctor.Reservations.ToList();
+
+            Reservation recentReservation = null; 
+            
+            try
+            {
+                recentReservation = reservations.OrderBy(res => res.Date).ToList()[0];
+                nextReservationDateLabel.Text = recentReservation.Date.ToString();
+                resPatientAvatar.Image = FileUtility.ByteArrayToImage(recentReservation.Patient.Image);
+                fullNameLabel.Text = recentReservation.Patient.FullName;
+                descriptionLabel.Text = recentReservation.Description;
+            }
+            catch (Exception)
+            {
+                reservationPanel.Visible = false;
+                noResLabel.Visible = true;
+            }
+
         }
 
         public void logoutButton_Click(object sender, EventArgs e)
@@ -44,7 +65,7 @@ namespace HospitalManagementSystem
             this.Close();
         }
 
-        private  List<ListItem> FilterReservationsBy(Func<Reservation,bool> func)
+        private  List<ListItem> FilterReservationsBy(Func<Reservation, bool> func)
         {
             var resList = currentDoctor.Reservations.Where(func).ToList();
             var controlList = new List<ListItem>(resList.Count);
@@ -54,6 +75,7 @@ namespace HospitalManagementSystem
                 ListItem item = new ListItem();
                 item.Title = reservation.Patient.FullName;
                 item.SubTitle = reservation.Description;
+                item.ThirdTitle = reservation.Patient.Email;
                 item.Icon = FileUtility.ByteArrayToImage(reservation.Patient.Image);
                 item.Reservation = reservation;
                 controlList.Add(item);
@@ -66,18 +88,19 @@ namespace HospitalManagementSystem
         {
             var listItem = FilterReservationsBy(res => res.Status == "Accepted");
 
-            foreach(var item in listItem)
+            ReservationListPage listPage = new ReservationListPage(listItem);
+
+            foreach (var item in listItem)
             {
                 item.Click += (_sender, _eArgs) =>
                 {
-                    ReservationInfo reservationInfo = new ReservationInfo(item.Reservation);
+                    ReservationInfo reservationInfo = new ReservationInfo(item.Reservation,listPage);
                     reservationInfo.AcceptButton.Hide();
                     reservationInfo.DeclineButton.Hide();
                     reservationInfo.ShowDialog();
                 };
             }
 
-            ReservationListPage listPage = new ReservationListPage(listItem);
             listPage.ShowDialog();
         }
 
@@ -85,17 +108,16 @@ namespace HospitalManagementSystem
         {
             var listItem = FilterReservationsBy(res => res.Status == "Pending");
 
-
+            ReservationListPage listPage = new ReservationListPage(listItem);
             foreach (var item in listItem)
             {
                 item.Click += (_sender, _eArgs) =>
                 {
-                    ReservationInfo reservationInfo = new ReservationInfo(item.Reservation);
+                    ReservationInfo reservationInfo = new ReservationInfo(item.Reservation,listPage);
                     reservationInfo.ShowDialog();
                 };
             }
 
-            ReservationListPage listPage = new ReservationListPage(listItem);
             listPage.ShowDialog();
         }
     }

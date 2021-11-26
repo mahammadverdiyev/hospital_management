@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
+using System.Data.Entity.Validation;
 
 namespace HospitalManagementSystem
 {
@@ -18,16 +19,58 @@ namespace HospitalManagementSystem
             this.context = context;
         }
 
-        public static  DatabaseManager Instance()
+        public static DatabaseManager Instance()
         {
             if (instance is null) instance = new DatabaseManager(new HospitalManSystemContext());
 
             return instance;
         }
 
+        public bool DoctorExists(string email)
+        {
+            Doctor doctor = context.Doctors.FirstOrDefault(d => d.Email.Equals(email));
+
+            return doctor != null;
+        }
+
+        public void RemoveDoctor(Doctor doctor)
+        {
+            context.Doctors.Remove(doctor);
+        }
+
+        public void RemovePatient(Patient patient)
+        {
+            context.Patients.Remove(patient);
+        }
+        public void AddEducations(List<Education> educations)
+        {
+            educations.ForEach(e => context.Educations.Add(e));
+        }
+
+        public void AddEmployments(List<Employment> employments)
+        {
+            employments.ForEach(e => context.Employments.Add(e));
+        }
+
         public void SaveChanges()
         {
-            context.SaveChanges();
+            try
+            {
+                context.SaveChanges();
+            }
+            catch (DbEntityValidationException e)
+            {
+                foreach (var eve in e.EntityValidationErrors)
+                {
+                    Console.WriteLine("Entity of type \"{0}\" in state \"{1}\" has the following validation errors:",
+                        eve.Entry.Entity.GetType().Name, eve.Entry.State);
+                    foreach (var ve in eve.ValidationErrors)
+                    {
+                        Console.WriteLine("- Property: \"{0}\", Error: \"{1}\"",
+                            ve.PropertyName, ve.ErrorMessage);
+                    }
+                }
+            }
         }
 
         public Doctor GetDoctorByEmail(string email)
@@ -46,6 +89,30 @@ namespace HospitalManagementSystem
                                     .ToList();
 
             return allDoctors;
+        }
+
+        public List<Patient> GetAllPatients()
+        {
+            return context.Patients
+                .ToList();
+        }
+
+        public Patient GetPatientFullyByEmail(string email)
+        {
+            return context.Patients
+                .Where(patient => patient.Email == email)
+                .Include("Reservations")
+                .Include(patient => patient.Reservations.Select(res => res.Doctor))
+                .FirstOrDefault();
+        }
+
+        public Doctor GetDoctorFullyByEmail(string email)
+        {
+            return context.Doctors
+                .Where(doctor => doctor.Email == email)
+                .Include("Reservations")
+                .Include(doctor => doctor.Reservations.Select(res => res.Patient))
+                .FirstOrDefault();
         }
 
         public Patient RegisterPatient(RegisterDetail registerDetail)
@@ -99,6 +166,10 @@ namespace HospitalManagementSystem
         public void AddDoctor(Doctor newDoctor)
         {
             context.Doctors.Add(newDoctor);
+        }
+        public void AddAdmin(Admin admin)
+        {
+            context.Admins.Add(admin);
         }
     }
 }

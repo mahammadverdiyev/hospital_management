@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net.Mail;
 using HospitalManagementSystem.Implementations;
+using HospitalManagementSystem.Forms;
 
 namespace HospitalManagementSystem
 {
@@ -21,6 +22,7 @@ namespace HospitalManagementSystem
         private RegisterPatient registerForm;
         private DoctorPage doctorPage;
         private PatientPage patientPage;
+        private AdminPage adminPage;
 
         public LoginPage()
         {
@@ -63,7 +65,7 @@ namespace HospitalManagementSystem
         private void RegisterAsPatient(object sender, EventArgs e)
         {
 
-            registerForm = new RegisterPatient();
+            registerForm = new RegisterPatient(this);
             this.Hide();
 
             registerForm.FormClosed += (s, eArg) => this.Show();
@@ -141,6 +143,12 @@ namespace HospitalManagementSystem
                         patientPage.Show();
                         break;
 
+                    case Admin admin:
+                        adminPage = new AdminPage();
+                        page = adminPage;
+                        adminPage.LogoutButton.Click += (_sender, _eArgs) => adminPage.Close();
+                        adminPage.Show();
+                        break;
                     default:
                         // admin
                         break;

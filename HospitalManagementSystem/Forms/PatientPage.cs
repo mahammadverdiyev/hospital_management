@@ -41,11 +41,9 @@ namespace HospitalManagementSystem
             var dbManager = DatabaseManager.Instance();
 
             availableDoctors = dbManager.GetAllDoctors();
-            Console.WriteLine(availableDoctors.Count);
 
             for(int i = 0; i < availableDoctors.Count; i++)
             {
-                Console.WriteLine(i);
                 var item = new ListItem();
                 item.Title = availableDoctors[i].FullName;
                 item.SubTitle = availableDoctors[i].Position;
@@ -74,7 +72,13 @@ namespace HospitalManagementSystem
 
         private void reservationsButton_Click(object sender, EventArgs e)
         {
+            PatientReservations patientReservations = new PatientReservations();
+            patientReservations.ShowDialog();
+        }
 
+        private void logoutButton_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

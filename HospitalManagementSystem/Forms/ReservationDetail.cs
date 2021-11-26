@@ -30,10 +30,8 @@ namespace HospitalManagementSystem.Forms
         {
             if (datePicker.Value.Day == DateTime.Now.Day)
             {
-                Console.WriteLine("TEST 1");
                 if (timePicker.Value.Hour == DateTime.Now.Hour)
                 {
-                    Console.WriteLine("TEST 2");
                     if (timePicker.Value.Minute < DateTime.Now.Minute)
                     {
                         return false;
@@ -41,13 +39,11 @@ namespace HospitalManagementSystem.Forms
                 }
                 else if (timePicker.Value.Hour < DateTime.Now.Hour)
                 {
-                    Console.WriteLine("TEST 3");
                     return false;
                 }
             }
             else if (datePicker.Value < DateTime.Now)
             {
-                Console.WriteLine("TEST 4");
                 return false;
             }
 
@@ -81,7 +77,8 @@ namespace HospitalManagementSystem.Forms
                 {
                     if(Math.Abs(ToMinutes(timePicker.Value) - ToMinutes(reservation.Date)) <= 40)
                     {
-                        return true;
+                        if (reservation.Status != "Rejected")
+                         return true;
                     }
                 }
             }

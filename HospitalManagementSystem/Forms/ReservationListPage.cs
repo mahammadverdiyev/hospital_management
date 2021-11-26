@@ -14,6 +14,22 @@ namespace HospitalManagementSystem.Forms
     {
         List<ListItem> reservationControls;
 
+        public FlowLayoutPanel FlowLayout => flowLayoutPanel;
+
+
+        public void RemoveReservationItemByPatientEmail(string email)
+        {
+            int index = 0;
+
+            foreach(ListItem item in reservationControls)
+            {
+                if (item.ThirdTitle.Equals(email)) break;
+                index++;
+            }
+
+            flowLayoutPanel.Controls.RemoveAt(index);
+        }
+
         public ReservationListPage(List<ListItem> reservationControls)
         {
             this.reservationControls = reservationControls;

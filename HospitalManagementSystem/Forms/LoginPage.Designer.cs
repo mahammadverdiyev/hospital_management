@@ -40,6 +40,8 @@ namespace HospitalManagementSystem
             this.saveDetailsCheckbox = new System.Windows.Forms.CheckBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -50,11 +52,11 @@ namespace HospitalManagementSystem
             this.registerAsPatient.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.registerAsPatient.Cursor = System.Windows.Forms.Cursors.Hand;
             this.registerAsPatient.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.8F);
-            this.registerAsPatient.Location = new System.Drawing.Point(393, 506);
+            this.registerAsPatient.Location = new System.Drawing.Point(579, 485);
             this.registerAsPatient.Name = "registerAsPatient";
-            this.registerAsPatient.Size = new System.Drawing.Size(229, 31);
+            this.registerAsPatient.Size = new System.Drawing.Size(109, 31);
             this.registerAsPatient.TabIndex = 4;
-            this.registerAsPatient.Text = "Register as Patient";
+            this.registerAsPatient.Text = "Register";
             this.registerAsPatient.Click += new System.EventHandler(this.RegisterAsPatient);
             // 
             // userEmail
@@ -119,7 +121,7 @@ namespace HospitalManagementSystem
             this.label3.AutoSize = true;
             this.label3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.8F);
-            this.label3.Location = new System.Drawing.Point(440, 39);
+            this.label3.Location = new System.Drawing.Point(447, 70);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(101, 39);
             this.label3.TabIndex = 11;
@@ -141,7 +143,7 @@ namespace HospitalManagementSystem
             this.panel2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.panel2.Controls.Add(this.userEmail);
-            this.panel2.Location = new System.Drawing.Point(329, 170);
+            this.panel2.Location = new System.Drawing.Point(329, 184);
             this.panel2.MaximumSize = new System.Drawing.Size(560, 45);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(359, 39);
@@ -152,17 +154,37 @@ namespace HospitalManagementSystem
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.panel1.Controls.Add(this.userPassword);
-            this.panel1.Location = new System.Drawing.Point(329, 265);
+            this.panel1.Location = new System.Drawing.Point(329, 279);
             this.panel1.MaximumSize = new System.Drawing.Size(560, 45);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(359, 39);
             this.panel1.TabIndex = 100;
             // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.Green;
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(950, 36);
+            this.panel3.TabIndex = 101;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.Green;
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel4.Location = new System.Drawing.Point(0, 556);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(950, 36);
+            this.panel4.TabIndex = 102;
+            // 
             // LoginPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(950, 564);
+            this.ClientSize = new System.Drawing.Size(950, 592);
+            this.Controls.Add(this.panel4);
+            this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.saveDetailsCheckbox);
@@ -199,5 +221,7 @@ namespace HospitalManagementSystem
         private System.Windows.Forms.CheckBox saveDetailsCheckbox;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel4;
     }
 }

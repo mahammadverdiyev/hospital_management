@@ -32,7 +32,6 @@ namespace HospitalManagementSystem
             this.doctorList = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.reservationsButton = new System.Windows.Forms.Button();
-            this.myProfileButton = new System.Windows.Forms.Button();
             this.labelFullName = new System.Windows.Forms.Label();
             this.logoutButton = new System.Windows.Forms.Button();
             this.userAvatar = new System.Windows.Forms.PictureBox();
@@ -56,7 +55,6 @@ namespace HospitalManagementSystem
             // 
             this.panel1.BackColor = System.Drawing.Color.Teal;
             this.panel1.Controls.Add(this.reservationsButton);
-            this.panel1.Controls.Add(this.myProfileButton);
             this.panel1.Controls.Add(this.labelFullName);
             this.panel1.Controls.Add(this.logoutButton);
             this.panel1.Controls.Add(this.userAvatar);
@@ -73,28 +71,13 @@ namespace HospitalManagementSystem
             this.reservationsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.reservationsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.reservationsButton.ForeColor = System.Drawing.Color.White;
-            this.reservationsButton.Location = new System.Drawing.Point(12, 343);
+            this.reservationsButton.Location = new System.Drawing.Point(12, 271);
             this.reservationsButton.Name = "reservationsButton";
             this.reservationsButton.Size = new System.Drawing.Size(230, 55);
             this.reservationsButton.TabIndex = 4;
             this.reservationsButton.Text = "My Reservations";
             this.reservationsButton.UseVisualStyleBackColor = false;
             this.reservationsButton.Click += new System.EventHandler(this.reservationsButton_Click);
-            // 
-            // myProfileButton
-            // 
-            this.myProfileButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.myProfileButton.FlatAppearance.BorderSize = 0;
-            this.myProfileButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.myProfileButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.myProfileButton.ForeColor = System.Drawing.Color.White;
-            this.myProfileButton.Location = new System.Drawing.Point(12, 265);
-            this.myProfileButton.Name = "myProfileButton";
-            this.myProfileButton.Size = new System.Drawing.Size(230, 55);
-            this.myProfileButton.TabIndex = 3;
-            this.myProfileButton.Text = "My Profile";
-            this.myProfileButton.UseVisualStyleBackColor = false;
-            this.myProfileButton.Click += new System.EventHandler(this.myProfileButton_Click);
             // 
             // labelFullName
             // 
@@ -114,7 +97,7 @@ namespace HospitalManagementSystem
             this.logoutButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.logoutButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.logoutButton.ForeColor = System.Drawing.Color.White;
-            this.logoutButton.Location = new System.Drawing.Point(12, 422);
+            this.logoutButton.Location = new System.Drawing.Point(12, 350);
             this.logoutButton.Name = "logoutButton";
             this.logoutButton.Size = new System.Drawing.Size(230, 55);
             this.logoutButton.TabIndex = 1;
@@ -149,6 +132,9 @@ namespace HospitalManagementSystem
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.doctorList);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "PatientPage";
             this.Text = "PatientPage";
             this.Load += new System.EventHandler(this.PatientPage_Load);
@@ -168,7 +154,6 @@ namespace HospitalManagementSystem
         private System.Windows.Forms.PictureBox userAvatar;
         private System.Windows.Forms.Button logoutButton;
         private System.Windows.Forms.Label labelFullName;
-        private System.Windows.Forms.Button myProfileButton;
         private System.Windows.Forms.Button reservationsButton;
     }
 }

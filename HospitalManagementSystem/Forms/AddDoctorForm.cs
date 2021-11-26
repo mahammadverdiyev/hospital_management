@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using HospitalManagementSystem.Models;
+using HospitalManagementSystem.Utility;
 
 namespace HospitalManagementSystem.Forms
 {
@@ -68,15 +69,48 @@ namespace HospitalManagementSystem.Forms
 
         private void DoneButton_Click(object sender, EventArgs e)
         {
+
             string fullName = fullNameTextBox.Text;
             string position = positionTextBox.Text;
             string phoneNumber = phoneNumberTextBox.Text;
+            string sex = sexComboBox.Text;
+            string email = emailTextBox.Text;
+
+            if(string.IsNullOrEmpty(fullName) || string.IsNullOrEmpty(position) ||
+                string.IsNullOrEmpty(phoneNumber) || string.IsNullOrEmpty(sex) || 
+                string.IsNullOrEmpty(email))
+            {
+                MessageBox.Show("Fields are empty");
+                return;
+            }
+
+            if (DatabaseManager.Instance().DoctorExists(email))
+            {
+                MessageBox.Show("This email has been already registered for another doctor");
+                return;
+            }
+
+
+            string password = Encryptor.Encrypt(passwordTextBox.Text,"cleancoders");
             List<Education> educations = addEducationForm.GetEducations();
             List<Employment> employments = addEmploymentForm.GetEmployments();
             List<Reservation> reservations = new List<Reservation>();
 
+
+            byte[] imageData = null;
+
+            if (sex == "Male")
+                imageData = FileUtility.ImageToByteArray(HospitalManagementSystem.Properties.Resources.male);
+
+            else
+                imageData = FileUtility.ImageToByteArray(HospitalManagementSystem.Properties.Resources.female);
+
             Doctor newDoctor = new Doctor()
             {
+                Image = imageData,
+                Sex = sex,
+                Email= email,
+                Password= password,
                 FullName = fullName,
                 Position = position,
                 PhoneNumber = phoneNumber,
@@ -95,8 +129,13 @@ namespace HospitalManagementSystem.Forms
                 employment.Doctor = newDoctor;
             }
 
+
+            DatabaseManager.Instance().AddEducations(educations);
+            DatabaseManager.Instance().AddEmployments(employments);
             DatabaseManager.Instance().AddDoctor(newDoctor);
             DatabaseManager.Instance().SaveChanges();
+            MessageBox.Show("Success!");
+            this.Close();
         }
     }
 }

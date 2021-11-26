@@ -56,6 +56,19 @@
                 .Index(t => t.Patient_Email);
             
             CreateTable(
+                "dbo.Admins",
+                c => new
+                    {
+                        Email = c.String(nullable: false, maxLength: 128),
+                        FullName = c.String(nullable: false),
+                        Sex = c.String(nullable: false),
+                        Password = c.String(nullable: false),
+                        BirthDate = c.DateTime(),
+                        Image = c.Binary(),
+                    })
+                .PrimaryKey(t => t.Email);
+            
+            CreateTable(
                 "dbo.Doctors",
                 c => new
                     {
@@ -63,7 +76,7 @@
                         FullName = c.String(nullable: false),
                         Sex = c.String(nullable: false),
                         Password = c.String(nullable: false),
-                        BirthDate = c.DateTime(nullable: false),
+                        BirthDate = c.DateTime(),
                         Image = c.Binary(),
                         Id = c.Int(nullable: false, identity: true),
                         Position = c.String(),
@@ -79,22 +92,9 @@
                         FullName = c.String(nullable: false),
                         Sex = c.String(nullable: false),
                         Password = c.String(nullable: false),
-                        BirthDate = c.DateTime(nullable: false),
+                        BirthDate = c.DateTime(),
                         Image = c.Binary(),
                         PhoneNumber = c.String(),
-                    })
-                .PrimaryKey(t => t.Email);
-            
-            CreateTable(
-                "dbo.Admins",
-                c => new
-                    {
-                        Email = c.String(nullable: false, maxLength: 128),
-                        FullName = c.String(nullable: false),
-                        Sex = c.String(nullable: false),
-                        Password = c.String(nullable: false),
-                        BirthDate = c.DateTime(nullable: false),
-                        Image = c.Binary(),
                     })
                 .PrimaryKey(t => t.Email);
             
@@ -110,9 +110,9 @@
             DropIndex("dbo.Reservations", new[] { "Doctor_Email" });
             DropIndex("dbo.Employments", new[] { "Doctor_Email" });
             DropIndex("dbo.Educations", new[] { "Doctor_Email" });
-            DropTable("dbo.Admins");
             DropTable("dbo.Patients");
             DropTable("dbo.Doctors");
+            DropTable("dbo.Admins");
             DropTable("dbo.Reservations");
             DropTable("dbo.Employments");
             DropTable("dbo.Educations");

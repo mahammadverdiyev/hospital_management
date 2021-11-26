@@ -18,12 +18,13 @@ namespace HospitalManagementSystem.Models
 
         [Key]
         [Required]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public string Email { get; set; }
         
         [Required]
         public string Password { get; set; }
 
-        public DateTime BirthDate { get; set; }
+        public DateTime? BirthDate { get; set; }
 
         public byte[] Image { get; set; }
     }

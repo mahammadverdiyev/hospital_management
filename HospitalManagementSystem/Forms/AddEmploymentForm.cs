@@ -22,16 +22,15 @@ namespace HospitalManagementSystem.Forms
             string position = positionTextBox.Text;
             string jobDescription = jobDescriptionTextBox.Text;
             string workplace = workplaceTextBox.Text;
-            DateTime startingDate = startingDateDateTimePicker.Value;
-            DateTime endingDate = endingDateDateTimePicker.Value;
+
 
             Employment employment = new Employment()
             {
+                StartingDate = startingDateDateTimePicker.Value,
+                EndingDate = endingDateDateTimePicker.Value,
                 Position = position,
                 JobDescription = jobDescription,
                 WorkPlace = workplace,
-                StartingDate = startingDate,
-                EndingDate = endingDate
             };
 
             employments.Add(employment);

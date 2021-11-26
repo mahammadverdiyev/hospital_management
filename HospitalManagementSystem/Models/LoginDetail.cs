@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace HospitalManagementSystem
 {
     public struct LoginDetail
-    {
+    { 
         public string Email { get; set; }
         public string Password { get; set; }
 
